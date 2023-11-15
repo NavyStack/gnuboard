@@ -1,0 +1,57 @@
+version: "3.8"
+services:
+  gnuboard-g5:
+    restart: always
+    image: navystack/gnuboard:5.5.12
+    volumes:
+      - gnuboard5-data:/var/www/html
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-network"
+
+      - "traefik.http.services.g5-srv.loadbalancer.server.port=80"
+      - "traefik.http.services.g5-srv.loadbalancer.passhostheader=true"
+
+      - "traefik.http.middlewares.www-redir.redirectregex.regex=^https://www.(.*)"
+      - "traefik.http.middlewares.www-redir.redirectregex.replacement=https://$${1}"
+      - "traefik.http.middlewares.www-redir.redirectregex.permanent=true"
+
+      - "traefik.http.middlewares.compresstraefik.compress=true"
+
+      - "traefik.http.routers.g5-rt.rule=Host(`navystack.com`) || Host(`www.navystack.com`)" ## 수정
+      - "traefik.http.routers.g5-rt.entrypoints=websecure"
+      - "traefik.http.routers.g5-rt.service=g5-srv"
+      - "traefik.http.routers.g5-rt.middlewares=www-redir, compresstraefik"
+
+      - "traefik.http.routers.g5-rt.tls=true"
+      - "traefik.http.routers.g5-rt.tls.certresolver=letsencrypt" ## 수정
+      - "traefik.http.routers.g5-rt.tls.domains[0].main=navystack.com" ## 수정
+      - "traefik.http.routers.g5-rt.tls.domains[0].sans=*.navystack.com" ## 수정
+    networks:
+      - traefik-network
+      - g5-internal
+
+  gnuboard-db:
+    restart: always
+    image: mysql:8.0
+    volumes:
+      - db_data:/var/lib/mysql
+      - db_socket:/var/lib/mysqld
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: g5-db-name
+      MYSQL_USER: g5-user
+      MYSQL_PASSWORD: password
+
+    networks:
+      - g5-internal
+
+volumes:
+  gnuboard5-data:
+  db_data:
+  db_socket:
+
+networks:
+  traefik-network:
+    external: true
+  g5-internal:
