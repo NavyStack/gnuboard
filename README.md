@@ -1,5 +1,5 @@
 # gnuboard
-
+[![Check for updates](https://github.com/NavyStack/gnuboard/actions/workflows/check-update.yml/badge.svg)](https://github.com/NavyStack/gnuboard/actions/workflows/check-update.yml)
 [![Docker Image CI](https://github.com/NavyStack/gnuboard/actions/workflows/docker-image.yml/badge.svg)](https://github.com/NavyStack/gnuboard/actions/workflows/docker-image.yml)
 
 - [ ] 설명 추가하기
