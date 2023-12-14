@@ -44,7 +44,7 @@ RUN curl -sSLf -o /usr/local/bin/install-php-extensions \
 
 # Nginx Dockerfile source
 # https://github.com/nginxinc/docker-nginx/blob/4bf0763f4977fff7e9648add59e0540088f3ca9f/mainline/debian/Dockerfile
-
+LABEL maintainer="NavyStack <webmaster@navystack.com>"
 RUN set -x \
 # create nginx user/group first, to be consistent throughout docker variants
     && groupadd --system --gid 101 nginx \
