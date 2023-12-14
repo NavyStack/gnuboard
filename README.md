@@ -1,5 +1,10 @@
 # gnuboard
 
+[![Docker Image CI](https://github.com/NavyStack/gnuboard/actions/workflows/docker-image.yml/badge.svg)](https://github.com/NavyStack/gnuboard/actions/workflows/docker-image.yml)
+
+- [] 설명 추가하기
+- [x] 도커 이미지 빌드
+
 ---
 
 모든 Docker 이미지와 마찬가지로, 여기에는 다른 라이선스(예: 기본 배포판의 Bash 등 및 포함된 기본 소프트웨어의 직간접적인 종속성)가 적용되는 다른 소프트웨어도 포함될 수 있습니다.
