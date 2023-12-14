@@ -2,7 +2,7 @@
 
 [![Docker Image CI](https://github.com/NavyStack/gnuboard/actions/workflows/docker-image.yml/badge.svg)](https://github.com/NavyStack/gnuboard/actions/workflows/docker-image.yml)
 
-- [] 설명 추가하기
+- [ ] 설명 추가하기
 - [x] 도커 이미지 빌드
 
 ---
