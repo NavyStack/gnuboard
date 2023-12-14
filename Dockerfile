@@ -5,7 +5,7 @@ FROM navystack/ngx_mod:${NGINX_VERSION} as nginx-moduler-gnuboard-downloader
 RUN apt-get update && apt-get install git wget -y
 WORKDIR /usr/src/gnuboard
 RUN git clone --recurse-submodules -j8 https://github.com/gnuboard/gnuboard5.git /usr/src/gnuboard && \
-    cd /usr/src/gnuboard && git reset --hard 5605b539f4438d5b261937fa3ec631b5f0c573a0 && \
+    cd /usr/src/gnuboard \
 	chown -R www-data:www-data /usr/src/gnuboard; \
 	mkdir data; \
 	chown -R www-data:www-data data; \
