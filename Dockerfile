@@ -10,6 +10,7 @@ RUN git clone --recurse-submodules -j8 https://github.com/gnuboard/gnuboard5.git
 	mkdir data; \
 	chown -R www-data:www-data data; \
 	chmod -R 1777 data
+RUN find . -mindepth 1 -maxdepth 1 -name '.*' ! -name '.' ! -name '..' -exec bash -c 'echo "Deleting {}"; rm -rf {}' \;
 
 FROM php:${PHP_VERSION} as final
 ENV NGINX_VERSION   1.25.3
