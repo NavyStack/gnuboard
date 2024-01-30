@@ -31,7 +31,7 @@ Traefik에 대한 설정은 https://github.com/NavyStack/traefik/ 여기에서 �
 
 ---
 
-모든 빌드 인수 및 관련된 파일은 https://github.com/NavyStack/gnuboard에서 확인하실 수 있습니다. 
+모든 빌드 인수 및 관련된 파일은 https://github.com/NavyStack/gnuboard/ 에서 확인하실 수 있습니다. 
 
 ---
 
