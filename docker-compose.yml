@@ -1,7 +1,7 @@
 services:
   gnuboard-g5:
     restart: always
-    image: navystack/gnuboard:5.5.13
+    image: navystack/gnuboard:5.6.8
     volumes:
       - gnuboard5-data:/var/www/html
     labels:
